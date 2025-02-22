@@ -19,22 +19,24 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid items-center justify-items-center min-h-screen pb-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start relative">
+    <div>
+      <main className="grid items-center justify-items-center min-h-screen pb-20 font-[family-name:var(--font-geist-sans)]">
         <FloatingNav />
         <Hero />
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-          {items.map((item, i) => (
-            <BentoGridItem
-              key={i}
-              title={item.title}
-              description={item.description}
-              header={item.header}
-              className={cn("[&>p:text-lg]", item.className)}
-              icon={item.icon}
-            />
-          ))}
-        </BentoGrid>
+        <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start relative">
+          <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+            {items.map((item, i) => (
+              <BentoGridItem
+                key={i}
+                title={item.title}
+                description={item.description}
+                header={item.header}
+                className={cn("[&>p:text-lg]", item.className)}
+                icon={item.icon}
+              />
+            ))}
+          </BentoGrid>
+        </div>
       </main>
     </div>
   );
