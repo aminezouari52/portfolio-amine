@@ -38,7 +38,7 @@ export default function Hero() {
               src={AminePP}
               height="500"
               width="500"
-              className="sm:w-28 md:w-full object-cover rounded-full group-hover/card:shadow-xl"
+              className="sm:w-28 lg:w-full object-cover rounded-full group-hover/card:shadow-xl"
               alt="thumbnail"
             />
           </CardItem>
