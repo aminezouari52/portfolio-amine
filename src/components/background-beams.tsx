@@ -64,6 +64,28 @@ export const BackgroundBeams = ({
       delay: 2,
       className: "h-6",
     },
+    {
+      initialX: 1400,
+      translateX: 1400,
+      duration: 6,
+      repeatDelay: 4,
+      delay: 2,
+      className: "h-6",
+    },
+    {
+      initialX: 1600,
+      translateX: 1600,
+      duration: 5,
+      repeatDelay: 14,
+      delay: 4,
+    },
+    {
+      initialX: 1800,
+      translateX: 1800,
+      duration: 11,
+      repeatDelay: 2,
+      className: "h-20",
+    },
   ];
 
   return (
