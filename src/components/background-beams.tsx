@@ -10,8 +10,8 @@ export const BackgroundBeams = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<any>(null);
+  const parentRef = useRef<any>(null);
 
   const beams = [
     {
