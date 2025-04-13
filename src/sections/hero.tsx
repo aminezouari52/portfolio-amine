@@ -9,11 +9,12 @@ import { CardBody, CardContainer, CardItem } from "@/components/3d-card";
 
 import Image from "next/image";
 import AminePP from "@/assets/amine-pp.png";
+// import resume from "@/assets/resume.pdf";
 
 export default function Hero() {
   return (
     <div
-      id="hero"
+      id="home"
       className="flex flex-col md:flex-row h-screen items-center justify-center overflow-hidden relative w-full gap-0 sm:gap-20 md:gap-30 lg:gap-40   p-8 sm:p-12 md:p-16 xl:p-24"
     >
       <h2 className=" relative z-20 text-2xl md:text-4xl xl:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
@@ -48,9 +49,9 @@ export default function Hero() {
           </CardBody>
         </CardContainer>
         <div className="flex flex-col sm:flex-row justify-between px-5">
-          <GithubButton
+          <ResumeButton
             text="Resume"
-            href="https://www.linkedin.com/in/amine-zouari52/"
+            href="https://github.com/aminezouari52/portfolio-amine/blob/master/public/resume.pdf"
             icon={<ResumeSvg />}
           />
           <GithubButton
@@ -70,6 +71,19 @@ export default function Hero() {
     </div>
   );
 }
+
+const ResumeButton = ({ href, icon, text }: any) => {
+  return (
+    <a
+      href={href}
+      download
+      className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-2 py-1 font-bold transform hover:-translate-y-1 transition duration-400"
+    >
+      <div className="h-5 w-5">{icon}</div>
+      <div className="w-100 text-white dark:text-black">{text}</div>
+    </a>
+  );
+};
 
 const GithubButton = ({ href, icon, text }: any) => {
   return (
