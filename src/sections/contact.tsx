@@ -20,23 +20,25 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
 
-    emailjs
-      .send(serviceId, templateId, values, {
-        publicKey,
-      })
-      .then(
-        (result) => {
-          console.log("Message sent!", result.text);
-          setSuccess(true);
-        },
-        (error) => {
-          console.log("Error:", error);
-          setErrorState(true);
-        }
-      );
+    console.log(values);
+
+    // emailjs
+    //   .send(serviceId, templateId, values, {
+    //     publicKey,
+    //   })
+    //   .then(
+    //     (result) => {
+    //       console.log("Message sent!", result.text);
+    //       setSuccess(true);
+    //     },
+    //     (error) => {
+    //       console.log("Error:", error);
+    //       setErrorState(true);
+    //     }
+    //   );
 
     formRef?.current?.reset();
   };
@@ -176,7 +178,12 @@ export default function Contact() {
             <li>github</li>
           </ul>
         </div> */}
-        {success && <AlertToast icon={<SuccessIcon />} />}
+        {success && (
+          <AlertToast
+            title="Message submitted successfully!"
+            icon={<SuccessIcon />}
+          />
+        )}
         {errorState && (
           <AlertToast title="Message failed to submit!" icon={<ErrorIcon />} />
         )}
@@ -247,7 +254,7 @@ const GithubSvg = () => (
   </svg>
 );
 
-const AlertToast = ({ title, icon }) => {
+const AlertToast = ({ title, icon }: { title: string; icon: any }) => {
   return (
     <div
       id="toast-success"
