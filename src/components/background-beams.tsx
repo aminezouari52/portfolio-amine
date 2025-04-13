@@ -6,9 +6,11 @@ import React, { useRef, useState, useEffect } from "react";
 export const BackgroundBeams = ({
   children,
   className,
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) => {
   const containerRef = useRef<any>(null);
   const parentRef = useRef<any>(null);
@@ -22,13 +24,6 @@ export const BackgroundBeams = ({
       delay: 2,
     },
     {
-      initialX: 600,
-      translateX: 600,
-      duration: 3,
-      repeatDelay: 3,
-      delay: 4,
-    },
-    {
       initialX: 100,
       translateX: 100,
       duration: 7,
@@ -36,28 +31,43 @@ export const BackgroundBeams = ({
       className: "h-6",
     },
     {
-      initialX: 400,
-      translateX: 400,
-      duration: 5,
-      repeatDelay: 14,
-      delay: 4,
-    },
-    {
-      initialX: 800,
-      translateX: 800,
+      initialX: 200,
+      translateX: 200,
       duration: 11,
       repeatDelay: 2,
       className: "h-20",
     },
     {
-      initialX: 1000,
-      translateX: 1000,
+      initialX: 300,
+      translateX: 400,
+      duration: 5,
+      repeatDelay: 14,
+      delay: 4,
+    },
+
+    {
+      initialX: 450,
+      translateX: 600,
+      duration: 3,
+      repeatDelay: 3,
+      delay: 4,
+    },
+    {
+      initialX: 1100,
+      translateX: 1100,
+      duration: 11,
+      repeatDelay: 2,
+      className: "h-20",
+    },
+    {
+      initialX: 1200,
+      translateX: 1200,
       duration: 4,
       repeatDelay: 2,
       className: "h-12",
     },
     {
-      initialX: 1200,
+      initialX: 1300,
       translateX: 1200,
       duration: 6,
       repeatDelay: 4,
@@ -92,10 +102,11 @@ export const BackgroundBeams = ({
     <div
       ref={parentRef}
       className={cn(
-        "bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
+        "relative w-full overflow-hidden",
         // h-screen if you want bigger
         className
       )}
+      id={id}
     >
       {beams.map((beam) => (
         <CollisionMechanism

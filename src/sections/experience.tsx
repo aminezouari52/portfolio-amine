@@ -1,6 +1,107 @@
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/timeline";
+import { HoverBorderGradient } from "@/components/hover-border-gradient";
+
+const dataContent = [
+  {
+    year: "2024 - current",
+    content: {
+      title: "Design System Developer",
+      company: "Schneider Electric",
+      skills: [
+        "TypeScript",
+        "CSS",
+        "Web Components",
+        "StencilJS",
+        "Storybook",
+        "Github Actions",
+      ],
+      tasks: [
+        {
+          title: "Set Up a Monorepo for a Design System",
+          description: `Established a scalable monorepo with Yarn and Turborepo,
+                    integrating a components library, Storybook, and both
+                    SvelteKit and Next.js applications.`,
+        },
+        {
+          title: "Built Scalable Web Components with StencilJS",
+          description: `Developed complex, reusable web components with StencilJS, ensuring UI consistency, accessibility (WCAG compliance), and server-side rendering (SSR) for high-performance web applications.`,
+        },
+        {
+          title: "Optimized Component Performance",
+          description: `Enhanced SSR hydration, reduced bundle sizes, and implemented lazy loading to improve load times and efficiency.`,
+        },
+        {
+          title: "Developed a Themeable Design System",
+          description: `Implemented CSS variables, design tokens, and component theming for flexible styling across multiple projects.`,
+        },
+        {
+          title: "Implemented Robust Testing Strategies",
+          description: `Implemented a robust testing strategy, including unit tests, snapshots end-to-end testing, and visual regression testing with Playwright, chromatic and storybook.`,
+        },
+        {
+          title: "Created Developer Documentation",
+          description: `Maintained documentation with Docusaurus and Storybook, improving developer onboarding and adoption of the design system.`,
+        },
+        {
+          title: "Collaborated in Agile Teams",
+          description: `Worked with project managers, and developers, designers, testers using Agile (SCRUM), Jira, and Figma to align goals and requirements.`,
+        },
+        {
+          title: "Mentored and Reviewed Code",
+          description: `Provided technical guidance, conducted reviews, and shared best practices to elevate code quality and maintainability.`,
+        },
+      ],
+      images: [],
+    },
+  },
+  {
+    year: "2023 - 2024",
+    content: {
+      title: "",
+      company: "",
+      skills: [""],
+      tasks: [
+        {
+          title: "",
+          description: ``,
+        },
+      ],
+      images: [],
+    },
+  },
+  {
+    year: "",
+    content: {
+      title: "",
+      company: "",
+      skills: [""],
+      tasks: [
+        {
+          title: "",
+          description: ``,
+        },
+      ],
+      images: [],
+    },
+  },
+  {
+    year: "",
+    content: {
+      title: "",
+      company: "",
+      skills: [""],
+      tasks: [
+        {
+          title: "",
+          description: ``,
+        },
+      ],
+      images: [],
+    },
+  },
+];
 
 export default function Experience() {
   const data = [
@@ -8,11 +109,26 @@ export default function Experience() {
       title: "2024",
       content: (
         <div>
-          <div className="text-2xl mb-8">
-            <span>Design System Developer</span> @{" "}
-            <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
-              Schneider Electric
-            </span>
+          <div className="mb-8">
+            <div className="text-2xl">
+              <span>Design System Developer</span> @{" "}
+              <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
+                Schneider Electric
+              </span>
+            </div>
+            <div className="flex gap-2 mt-4 flex-wrap">
+              {[
+                "TypeScript",
+                "CSS",
+                "Web Components",
+                "StencilJS",
+                "Storybook",
+                "Github Actions",
+                "DOM",
+              ].map((skill: string) => (
+                <SkillBadge key={skill} skill={skill} />
+              ))}
+            </div>
           </div>
           <ul className="space-y-1 list-disc list-inside">
             <li>
@@ -101,11 +217,28 @@ export default function Experience() {
       title: "2023",
       content: (
         <div>
-          <div className="text-2xl mb-8">
-            <span>Fullstack JavaScript Developer </span> @{" "}
-            <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
-              Pixelium
-            </span>
+          <div className="mb-8">
+            <div className="text-2xl">
+              <span>Fullstack JavaScript Developer </span> @{" "}
+              <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
+                Pixelium
+              </span>
+            </div>
+            <div className="flex gap-2 mt-4 flex-wrap">
+              {[
+                "TypeScript",
+                "NextJS",
+                "ReactJS",
+                "Bootstrap 5",
+                "Tabler.io",
+                "Redux Toolkit",
+                "NodeJS",
+                "FastifyJS",
+                "MongoDB",
+              ].map((skill: string) => (
+                <SkillBadge key={skill} skill={skill} />
+              ))}
+            </div>
           </div>
 
           <ul className="space-y-1 list-disc list-inside">
@@ -164,11 +297,27 @@ export default function Experience() {
       title: "2023",
       content: (
         <div>
-          <div className="text-2xl mb-8">
-            <span>Web Developer Intern </span> @{" "}
-            <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
-              Proxym
-            </span>
+          <div className="mb-8">
+            <div className="text-2xl">
+              <span>Web Developer Intern </span> @{" "}
+              <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
+                Proxym
+              </span>
+            </div>
+            <div className="flex gap-2 mt-4 flex-wrap">
+              {[
+                "TypeScript",
+                "ReactJS",
+                "ChakraUI",
+                "RTK Query",
+                "SQL",
+                "PostgresSQL",
+                "NestJS",
+                "PrismaORM",
+              ].map((skill: string) => (
+                <SkillBadge key={skill} skill={skill} />
+              ))}
+            </div>
           </div>
 
           <ul className="space-y-1 list-disc list-inside">
@@ -203,36 +352,6 @@ export default function Experience() {
               </p>
             </li>
           </ul>
-          <div className="grid grid-cols-2 gap-4 mt-4">
-            <Image
-              src="https://assets.aceternity.com/pro/hero-sections.png"
-              alt="hero template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/features-section.png"
-              alt="feature template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-            <Image
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-            />
-          </div>
         </div>
       ),
     },
@@ -240,11 +359,24 @@ export default function Experience() {
       title: "2022",
       content: (
         <div>
-          <div className="text-2xl mb-8">
-            <span>Frontend Developer Intern </span> @{" "}
-            <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
-              Proxym
-            </span>
+          <div className="mb-8">
+            <div className="text-2xl">
+              <span>Frontend Developer Intern </span> @{" "}
+              <span className="font-bold bg-gradient-to-r from-[#3A7EED] to-[#A158F7] text-transparent bg-clip-text">
+                Proxym
+              </span>
+            </div>
+            <div className="flex gap-2 mt-4 flex-wrap">
+              {[
+                "JavaScript",
+                "ReactJS",
+                "ElectronJS",
+                "Material UI",
+                "RestAPI",
+              ].map((skill: string) => (
+                <SkillBadge key={skill} skill={skill} />
+              ))}
+            </div>
           </div>
 
           <ul className="space-y-1 list-disc list-inside">
@@ -272,8 +404,18 @@ export default function Experience() {
     },
   ];
   return (
-    <div className="w-full">
+    <div id="career" className="w-full">
       <Timeline data={data} />
     </div>
   );
 }
+
+const SkillBadge = ({ skill }: { skill: string }) => (
+  <HoverBorderGradient
+    containerClassName="rounded-full"
+    as="div"
+    className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 text-base"
+  >
+    <span>{skill}</span>
+  </HoverBorderGradient>
+);

@@ -16,17 +16,32 @@ import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 const navItems = [
   {
     name: "Home",
-    link: "/",
+    link: "#hero",
     icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
-    name: "About",
-    link: "/about",
+    name: "Skills",
+    link: "#skills",
     icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
+    name: "Career",
+    link: "#career",
+    icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
+    name: "Projects",
+    link: "#project",
+    icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
+    name: "Education",
+    link: "#education",
+    icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
+  },
+  {
     name: "Contact",
-    link: "/contact",
+    link: "#contact",
     icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
 ];
@@ -103,7 +118,7 @@ export const FloatingNav = ({ className }: { className?: string }) => {
         ))}
         <button
           className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           {theme === "light" ? (
             <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

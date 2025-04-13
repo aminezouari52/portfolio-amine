@@ -168,7 +168,7 @@ export const ModalFooter = ({
       )}
     >
       <button
-        className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28"
+        className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28 transform hover:-translate-y-1 transition duration-400"
         onClick={() => {
           setOpen(false);
         }}
