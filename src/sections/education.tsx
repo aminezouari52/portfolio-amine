@@ -6,7 +6,7 @@ import { BadgeCheck, GraduationCap } from "lucide-react";
 import { GlowingEffect } from "@/components/glowing-effect";
 export default function Education() {
   return (
-    <div id="education" className=" h-screen">
+    <div id="education" className="min-h-screen w-full">
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
           Education & Certifications

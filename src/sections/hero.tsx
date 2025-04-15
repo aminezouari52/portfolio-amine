@@ -9,7 +9,6 @@ import { CardBody, CardContainer, CardItem } from "@/components/3d-card";
 
 import Image from "next/image";
 import AminePP from "@/assets/amine-pp.png";
-// import resume from "@/assets/resume.pdf";
 
 export default function Hero() {
   return (
@@ -36,7 +35,10 @@ export default function Hero() {
           Amine Zouari
         </h1>
         <CardContainer className="hidden inter-var md:block">
-          <CardBody className="hidden sm:block bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-neutral-800 dark:border-white/[0.1] border-black/[0.1] w-auto sm:w-[14rem] md:w-[18rem] xl:w-[24rem] h-auto rounded-full sm:p-2 md:p-6 border mx-auto">
+          <CardBody
+            className="hidden sm:block bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-neutral-800 dark:border-white/[0.1] border-black/[0.1] w-auto
+            h-auto rounded-full p-2 lg:p-6 border mx-auto"
+          >
             <CardItem translateZ="100" className="w-auto flex justify-center">
               <Image
                 src={AminePP}
@@ -48,12 +50,8 @@ export default function Hero() {
             </CardItem>
           </CardBody>
         </CardContainer>
-        <div className="flex flex-col sm:flex-row justify-between px-5">
-          <ResumeButton
-            text="Resume"
-            href="https://github.com/aminezouari52/portfolio-amine/blob/master/public/resume.pdf"
-            icon={<ResumeSvg />}
-          />
+        <div className="flex flex-col gap-2 sm:flex-row justify-between px-5">
+          <ResumeButton text="Resume" icon={<ResumeSvg />} />
           <GithubButton
             text="Github"
             href="https://github.com/aminezouari52"
@@ -72,10 +70,12 @@ export default function Hero() {
   );
 }
 
-const ResumeButton = ({ href, icon, text }: any) => {
+const ResumeButton = ({ icon, text }: any) => {
   return (
     <a
-      href={href}
+      href="/files/Amine_Zouari_Resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
       download
       className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-2 py-1 font-bold transform hover:-translate-y-1 transition duration-400"
     >

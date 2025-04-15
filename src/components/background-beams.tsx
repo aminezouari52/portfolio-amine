@@ -102,7 +102,7 @@ export const BackgroundBeams = ({
     <div
       ref={parentRef}
       className={cn(
-        "relative w-full overflow-hidden",
+        "relative overflow-hidden",
         // h-screen if you want bigger
         className
       )}

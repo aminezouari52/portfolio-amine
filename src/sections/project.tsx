@@ -9,7 +9,6 @@ import {
   ModalFooter,
   ModalTrigger,
 } from "../components/animated-modal";
-import { LinkPreview } from "@/components/link-preview";
 import { CanvasRevealEffect } from "@/components/canvas-reveal-effect";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
@@ -23,8 +22,8 @@ import {
   Box,
   ShoppingCart,
   CreditCard,
-  Link,
   HeartPulse,
+  Globe,
 } from "lucide-react";
 import telemedicineImg1 from "../assets/telemedicine-1.png";
 import telemedicineImg2 from "../assets/telemedicine-2.png";
@@ -33,7 +32,6 @@ import telemedicineImg4 from "../assets/telemedicine-4.png";
 import telemedicineImg5 from "../assets/telemedicine-5.png";
 
 import Home from "../assets/Home.png";
-import Logo from "../assets/logo.png";
 import Login from "../assets/Login.png";
 import Shop from "../assets/Shop.png";
 import UserImg from "../assets/User.png";
@@ -60,9 +58,9 @@ export default function Project() {
           Side projects that I&apos;ve created in my free time.
         </p>
       </div>
-      <div className="relative max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10 flex items-center gap-[48px]">
+      <div className="relative max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10 flex flex-col sm:flex-row items-center gap-[48px]">
         <Modal>
-          <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[50%] overflow-visible">
+          <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
             <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
               <Card
                 title="Telemedicine Website"
@@ -81,15 +79,9 @@ export default function Project() {
           <ModalBody>
             <ModalContent>
               <div className="flex justify-center align-center mb-8">
-                <LinkPreview
-                  url="https://bucolic-malabi-07ed64.netlify.app/"
-                  className="flex align-center z-[50] gap-3"
-                >
-                  <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
-                    Telemedicine Website{" "}
-                  </h4>
-                  <Link className="min-h-[100%] mr-1 text-neutral-700 dark:text-neutral-300 w-5" />
-                </LinkPreview>
+                <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
+                  Telemedicine Website{" "}
+                </h4>
               </div>
               <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
               <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
@@ -119,7 +111,7 @@ export default function Project() {
                   </span>
                 ))}
               </div>
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center flex-wrap mb-4">
                 {images.map((image, idx) => (
                   <motion.div
                     key={"images" + idx}
@@ -143,7 +135,7 @@ export default function Project() {
                       alt="telemedicine images"
                       width="500"
                       height="500"
-                      className="rounded-lg h-[150px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[200px] xl:w-[250px] object-cover shrink-0"
+                      className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
                     />
                   </motion.div>
                 ))}
@@ -184,13 +176,22 @@ export default function Project() {
               </div>
             </ModalContent>
             <ModalFooter className="gap-4">
-              <GithubIcon href="https://github.com/aminezouari52/telemedicine-website" />
+              <ActionButton
+                href="https://bucolic-malabi-07ed64.netlify.app/"
+                icon={<Globe className="text-black h-5 w-5" />}
+                title="Live Website"
+              />
+              <ActionButton
+                href="https://github.com/aminezouari52/telemedicine-website"
+                icon={<GithubIcon />}
+                title="Github"
+              />
             </ModalFooter>
           </ModalBody>
         </Modal>
 
         <Modal>
-          <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[50%] overflow-visible">
+          <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
             <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
               <Card
                 title="E-Commerce Website"
@@ -213,15 +214,9 @@ export default function Project() {
           <ModalBody>
             <ModalContent>
               <div className="flex justify-center align-center mb-8">
-                <LinkPreview
-                  url="https://polite-cassata-060142.netlify.app/"
-                  className="flex align-center z-[50] gap-3"
-                >
-                  <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
-                    E-Commerce Website{" "}
-                  </h4>
-                  <Link className="min-h-[100%] mr-1 text-neutral-700 dark:text-neutral-300 w-5" />
-                </LinkPreview>
+                <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
+                  E-Commerce Website{" "}
+                </h4>
               </div>
               <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
               <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
@@ -250,7 +245,7 @@ export default function Project() {
                   </span>
                 ))}
               </div>
-              <div className="mt-4 flex justify-center items-center">
+              <div className="mt-4 flex justify-center items-center flex-wrap mb-4">
                 {imagesCommerce.map((image, idx) => (
                   <motion.div
                     key={"images" + idx}
@@ -274,7 +269,7 @@ export default function Project() {
                       alt="ecommerce images"
                       width="500"
                       height="500"
-                      className="rounded-lg h-[150px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[200px] xl:w-[250px] object-cover shrink-0"
+                      className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
                     />
                   </motion.div>
                 ))}
@@ -315,7 +310,16 @@ export default function Project() {
               </div>
             </ModalContent>
             <ModalFooter className="gap-4">
-              <GithubIcon href="https://github.com/aminezouari52/e-commerce" />
+              <ActionButton
+                href="https://polite-cassata-060142.netlify.app/"
+                icon={<Globe className="text-black h-5 w-5" />}
+                title="Live Website"
+              />
+              <ActionButton
+                href="https://github.com/aminezouari52/e-commerce"
+                icon={<GithubIcon />}
+                title="Github"
+              />
             </ModalFooter>
           </ModalBody>
         </Modal>
@@ -324,30 +328,36 @@ export default function Project() {
   );
 }
 
-const GithubIcon = ({ href }: { href: string }) => {
+const ActionButton = ({ href, icon, title }: any) => {
   return (
     <a
       href={href}
       target="_blank"
-      className="flex gap-2 bg-black dark:bg-white text-sm px-2 py-1 rounded-md border border-black w-28 transform hover:-translate-y-1 transition duration-400"
+      className="flex gap-2 bg-black dark:bg-white text-sm px-2 py-1 rounded-md border border-black transform hover:-translate-y-1 transition duration-400"
     >
-      <svg
-        className="w-5 h-5 text-[#fff] dark:text-[#000] ms-2"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fillRule="evenodd"
-          d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
-          clipRule="evenodd"
-        />
-      </svg>
-      <div className="w-100 text-white dark:text-black">Github</div>
+      {icon}
+      <div className="w-100 text-white dark:text-black">{title}</div>
     </a>
+  );
+};
+
+const GithubIcon = () => {
+  return (
+    <svg
+      className="w-5 h-5 text-[#fff] dark:text-[#000] ms-2"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fillRule="evenodd"
+        d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 };
 

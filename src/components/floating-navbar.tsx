@@ -11,7 +11,8 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import { IconHome, IconMessage, IconBrain } from "@tabler/icons-react";
+import { BriefcaseBusiness, FolderOpen, GraduationCap } from "lucide-react";
 
 const navItems = [
   {
@@ -22,22 +23,26 @@ const navItems = [
   {
     name: "Skills",
     link: "#skills",
-    icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: <IconBrain className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
     name: "Career",
     link: "#career",
-    icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: (
+      <BriefcaseBusiness className="h-4 w-4 text-neutral-500 dark:text-white" />
+    ),
   },
   {
     name: "Projects",
     link: "#projects",
-    icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: <FolderOpen className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
   {
     name: "Education",
     link: "#education",
-    icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: (
+      <GraduationCap className="h-4 w-4 text-neutral-500 dark:text-white" />
+    ),
   },
   {
     name: "Contact",

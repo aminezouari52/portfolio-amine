@@ -23,22 +23,20 @@ export default function Contact() {
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
 
-    console.log(values);
-
-    // emailjs
-    //   .send(serviceId, templateId, values, {
-    //     publicKey,
-    //   })
-    //   .then(
-    //     (result) => {
-    //       console.log("Message sent!", result.text);
-    //       setSuccess(true);
-    //     },
-    //     (error) => {
-    //       console.log("Error:", error);
-    //       setErrorState(true);
-    //     }
-    //   );
+    emailjs
+      .send(serviceId, templateId, values, {
+        publicKey,
+      })
+      .then(
+        (result) => {
+          console.log("Message sent!", result.text);
+          setSuccess(true);
+        },
+        (error) => {
+          console.log("Error:", error);
+          setErrorState(true);
+        }
+      );
 
     formRef?.current?.reset();
   };
@@ -59,7 +57,7 @@ export default function Contact() {
   return (
     <BackgroundBeams
       id="contact"
-      className="flex flex-col h-screen w-[99vw] overflow-hidden gap-8 md:gap-20"
+      className="flex flex-col w-full h-screen gap-8 md:gap-20"
     >
       <p
         style={{ letterSpacing: "4px" }}
@@ -139,11 +137,11 @@ export default function Contact() {
             </button>
           </form>
           <div className=" h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
-          <div className="flex items-end justify-between mb-10">
+          <div className="flex flex-col sm:flex-row items-center sm:items-end gap-2 justify-between mb-10">
             <div className=" flex flex-col gap-1">
               <div className="flex align-center gap-2">
                 <MapPin className="h-5 w-5" />
-                <p>Tunisia, Sousse</p>
+                <p>Sousse, Tunisia</p>
               </div>
               <div className="flex align-center gap-2">
                 <Mail className="h-5 w-5" />
@@ -168,16 +166,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
-        {/* <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-          <ul>
-            <li>Tunisia, Sousse</li>
-            <li>+216 21 439 094</li>
-            <li>zouariamine52@gmail.com</li>
-            <li>linkedin</li>
-            <li>github</li>
-          </ul>
-        </div> */}
         {success && (
           <AlertToast
             title="Message submitted successfully!"
@@ -201,13 +189,12 @@ const BottomGradient = () => {
   );
 };
 
-const GithubButton = ({ href, icon, text }: any) => {
+const GithubButton = ({ href, icon }: any) => {
   return (
     <a
       href={href}
       target="_blank"
       className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-2 py-1 font-bold transform hover:-translate-y-1 transition duration-400"
-      // px-6 py-2 bg-black text-white rounded-lg "
     >
       <div className="h-5 w-5">{icon}</div>
     </a>
