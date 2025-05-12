@@ -1,63 +1,74 @@
 "use client";
 import { cn } from "@/lib/utils";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import { BackgroundBeams } from "@/components/background-beams";
 import { Label } from "@/components/label";
 import { Input } from "@/components/input";
 import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import * as yup from "yup";
 
 const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
 const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
 const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
+const schema = yup
+  .object({
+    name: yup.string().required("name field is required"),
+    email: yup
+      .string()
+      .matches(
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        "Must be a valid email address"
+      )
+      .required("Email is required"),
+    message: yup.string().required("Message field is required"),
+  })
+  .required();
+
+interface Schema {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function Contact() {
   const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorState, setErrorState] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const values = Object.fromEntries(formData.entries());
+  const { register, handleSubmit, reset } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    emailjs
-      .send(serviceId, templateId, values, {
+  const onSubmit = async (values: Record<string, unknown>) => {
+    setIsLoading(true);
+
+    try {
+      const result = await emailjs.send(serviceId, templateId, values, {
         publicKey,
-      })
-      .then(
-        (result) => {
-          console.log("Message sent!", result.text);
-          setSuccess(true);
-        },
-        (error) => {
-          console.log("Error:", error);
-          setErrorState(true);
-        }
-      );
+      });
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (error) {
+      setErrorState(true);
+      setTimeout(() => setErrorState(false), 5000);
+    } finally {
+      setIsLoading(false);
+    }
 
-    formRef?.current?.reset();
+    reset();
   };
-
-  useEffect(() => {
-    if (success) {
-      setTimeout(() => {
-        setSuccess(false);
-      }, 5000);
-    }
-    if (errorState) {
-      setTimeout(() => {
-        setErrorState(false);
-      }, 5000);
-    }
-  }, [success, errorState]);
 
   return (
     <BackgroundBeams
       id="contact"
-      className="flex flex-col w-full h-screen gap-8 md:gap-20"
+      className="flex flex-col w-full h-screen justify-center gap-8 md:gap-20"
     >
       <p
         style={{ letterSpacing: "4px" }}
@@ -79,11 +90,10 @@ export default function Contact() {
         </span>
       </p>
       <div className="z-[10]">
-        <div className="mx-auto w-full max-w-md rounded-none bg-white md:rounded-2xl dark:bg-transparent flex flex-col gap-10">
+        <div className="mx-auto w-full max-w-md rounded-none bg-white md:rounded-2xl dark:bg-transparent flex flex-col items-center gap-5 md:gap-10">
           <form
-            ref={formRef}
-            className="flex flex-col gap-6"
-            onSubmit={handleSubmit}
+            className="flex flex-col gap-6 w-[80%] md:w-full"
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col gap-3">
               <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
@@ -95,12 +105,10 @@ export default function Contact() {
                     id="name"
                     placeholder="Your name"
                     type="text"
-                    name="name"
+                    {...register("name")}
                   />
                 </LabelInputContainer>
                 <LabelInputContainer className="mb-4">
-                  {/* className="" */}
-
                   <Label htmlFor="email" className="mb-2 mt-4 md:mt-0">
                     Email Address
                   </Label>
@@ -108,7 +116,7 @@ export default function Contact() {
                     id="email"
                     placeholder="Your email address"
                     type="email"
-                    name="email"
+                    {...register("email")}
                   />
                 </LabelInputContainer>
               </div>
@@ -122,7 +130,7 @@ export default function Contact() {
                     placeholder="Hey Amine! I really like your work, let's connect!"
                     type="textarea"
                     className="h-20"
-                    name="message"
+                    {...register("message")}
                   />
                 </LabelInputContainer>
               </div>
@@ -132,33 +140,42 @@ export default function Contact() {
               className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
               type="submit"
             >
-              Submit &rarr;
+              {isLoading ? (
+                <span className="flex items-center justify-center">
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Loading...
+                </span>
+              ) : (
+                <>Submit &rarr;</>
+              )}
               <BottomGradient />
             </button>
           </form>
+
           <div className=" h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
-          <div className="flex flex-col sm:flex-row items-center sm:items-end gap-2 justify-between mb-10">
+
+          <div className="flex flex-col sm:flex-row items-center sm:items-end gap-4 justify-between">
             <div className=" flex flex-col gap-1">
-              <div className="flex align-center gap-2">
-                <MapPin className="h-5 w-5" />
-                <p>Sousse, Tunisia</p>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5" />
+                <p className="text-sm md:text-base">Sousse, Tunisia</p>
               </div>
-              <div className="flex align-center gap-2">
-                <Mail className="h-5 w-5" />
-                <p>zouariamine52@gmail.com</p>
+              <div className="flex items-center gap-2">
+                <Mail className="h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5" />
+                <p className="text-sm md:text-base">zouariamine52@gmail.com</p>
               </div>
-              <div className="flex align-center gap-2">
-                <Phone className="h-5 w-5" />
-                <p>+216 21 439 094</p>
+              <div className="flex items-center gap-2">
+                <Phone className="h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5" />
+                <p className="text-sm md:text-base">+216 21 439 094</p>
               </div>
             </div>
             <div className="flex gap-2">
-              <GithubButton
+              <SocialButton
                 text="Github"
                 href="https://github.com/aminezouari52"
                 icon={<GithubSvg />}
               />
-              <GithubButton
+              <SocialButton
                 text="LinkedIn"
                 href="https://www.linkedin.com/in/amine-zouari52/"
                 icon={<LinkedinSvg />}
@@ -189,12 +206,12 @@ const BottomGradient = () => {
   );
 };
 
-const GithubButton = ({ href, icon }: any) => {
+const SocialButton = ({ href, icon }: any) => {
   return (
     <a
       href={href}
       target="_blank"
-      className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-2 py-1 font-bold transform hover:-translate-y-1 transition duration-400"
+      className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-1 md:px-2 py-1 font-bold transform hover:-translate-y-1 transition duration-400"
     >
       <div className="h-5 w-5">{icon}</div>
     </a>
