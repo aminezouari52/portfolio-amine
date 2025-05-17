@@ -17,6 +17,29 @@ export const metadata: Metadata = {
   title: "Amine Zouari | Fullstack JavaScript Developer",
   description:
     "I'm Amine, a passionate fullstack JavaScript developer crafting modern web experiences.",
+  openGraph: {
+    title: "Amine Zouari | Fullstack JavaScript Developer",
+    description:
+      "I'm Amine, a passionate fullstack JavaScript developer crafting modern web experiences.",
+    url: "https://amine-zouari.vercel.app/",
+    siteName: "Amine Zouari Portfolio",
+    images: [
+      {
+        url: "https://amine-zouari.vercel.app/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Amine Zouari Portfolio Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amine Zouari | Fullstack JavaScript Developer",
+    description:
+      "I'm Amine, a passionate fullstack JavaScript developer crafting modern web experiences.",
+    images: ["https://amine-zouari.vercel.app/preview.png"],
+  },
 };
 
 export default function RootLayout({
