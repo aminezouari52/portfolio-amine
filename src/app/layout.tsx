@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://amine-zouari.vercel.app/preview.png",
-        width: 1200,
+        width: 1300,
         height: 630,
         alt: "Amine Zouari Portfolio Preview",
       },
