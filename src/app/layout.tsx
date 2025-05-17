@@ -16,11 +16,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Amine Zouari | Fullstack JavaScript Developer",
   description:
-    "I'm Amine, a passionate fullstack JavaScript developer crafting modern web experiences.",
+    "I'm Amine, a passionate fullstack JavaScript developer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
+  authors: [{ name: "Amine Zouari" }],
   openGraph: {
     title: "Amine Zouari | Fullstack JavaScript Developer",
     description:
-      "I'm Amine, a passionate fullstack JavaScript developer crafting modern web experiences.",
+      "I'm Amine, a passionate fullstack JavaScript developer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
     url: "https://amine-zouari.vercel.app/",
     siteName: "Amine Zouari Portfolio",
     images: [
@@ -31,13 +32,14 @@ export const metadata: Metadata = {
         alt: "Amine Zouari Portfolio Preview",
       },
     ],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Amine Zouari | Fullstack JavaScript Developer",
     description:
-      "I'm Amine, a passionate fullstack JavaScript developer crafting modern web experiences.",
+      "I'm Amine, a passionate fullstack JavaScript developer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
     images: ["https://amine-zouari.vercel.app/preview.png"],
   },
 };
