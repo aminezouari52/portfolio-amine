@@ -24,6 +24,7 @@ export default function Education() {
             title="Computer Science Engineer's degree"
             description="Ecole Polytechnique Sousse"
             date="September 2023 - Juin 2026"
+            href="https://www.polytecsousse.tn/"
           />
 
           <GridItem
@@ -33,6 +34,7 @@ export default function Education() {
             title="Computer Science Bachelor's degree"
             description="École supérieure des sciences et de la technologie de Hammam Sousse"
             date="September 2020 - Juin 2023"
+            href="https://essths.rnu.tn/"
           />
 
           <GridItem
@@ -42,6 +44,7 @@ export default function Education() {
             title="JavaScript Ninja Course"
             description="javascript.info"
             date="October 2023"
+            href="https://javascript.info/"
           />
 
           <GridItem
@@ -52,6 +55,7 @@ export default function Education() {
             description="Germany, Bildungsverein Soziales Lernen und Kommunikation e.V. Hannover"
             date="March 2019"
             result="TestDaF 3"
+            href="https://bildungsverein.de/"
           />
         </ul>
       </div>
@@ -66,6 +70,7 @@ interface GridItemProps {
   date: string;
   description: React.ReactNode;
   result?: string;
+  href?: string;
 }
 
 const GridItem = ({
@@ -75,10 +80,15 @@ const GridItem = ({
   description,
   date,
   result,
+  href,
 }: GridItemProps) => {
   return (
-    <li className={`min-h-[12rem] list-none ${area}`}>
-      <div className="relative h-full rounded-2.5xl border  p-2  md:rounded-3xl md:p-3">
+    <a
+      className={`group min-h-[12rem] list-none cursor-pointer ${area}`}
+      href={href}
+      target="_blank"
+    >
+      <div className="relative h-full rounded-2.5xl border p-2 md:rounded-3xl md:p-3">
         <GlowingEffect
           spread={40}
           glow={true}
@@ -87,28 +97,32 @@ const GridItem = ({
           inactiveZone={0.01}
         />
         <div className="relative  flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-0.75 p-6  dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6">
-          <div className="relative  flex flex-1 flex-col justify-between gap-3">
+          <div className="relative  flex flex-1 flex-col gap-3">
             <div className="w-fit rounded-lg border border-gray-600 p-2 ">
               {icon}
             </div>
             <div className="space-y-3">
-              <h3 className="pt-0.5 text-xl/[1.375rem] font-semibold font-sans -tracking-4 md:text-2xl/[1.875rem] text-balance text-black dark:text-white">
+              <h3
+                className="pt-0.5 text-xl/[1.375rem] font-semibold font-sans -tracking-4 
+                   md:text-2xl/[1.875rem] text-balance text-black dark:text-white 
+                   group-hover:underline"
+              >
                 {title}
               </h3>
               <h6 className="text-gray-400">{result}</h6>
               <div className="inline-flex items-center font-medium text-blue-600 dark:text-blue-500">
                 {date}
               </div>
-              <h2
-                className="[&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm/[1.125rem] 
+              <a
+                className="block [&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm/[1.125rem] 
                 md:text-base/[1.375rem]  text-black dark:text-neutral-400"
               >
                 {description}
-              </h2>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </li>
+    </a>
   );
 };
