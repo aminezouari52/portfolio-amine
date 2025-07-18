@@ -39,6 +39,15 @@ export default function Education() {
             icon={
               <BadgeCheck className="h-4 w-4 text-black dark:text-neutral-400" />
             }
+            title="JavaScript Ninja Course"
+            description="javascript.info"
+            date="October 2023"
+          />
+
+          <GridItem
+            icon={
+              <BadgeCheck className="h-4 w-4 text-black dark:text-neutral-400" />
+            }
             title="German Certification C1"
             description="Germany, Bildungsverein Soziales Lernen und Kommunikation e.V. Hannover"
             date="March 2019"
