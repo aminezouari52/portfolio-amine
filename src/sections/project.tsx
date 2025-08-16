@@ -512,38 +512,38 @@ const GithubIcon = () => {
   );
 };
 
-const CarouselElement = ({ images }: any) => {
-  return (
-    <div className="p-15 sm:p-20 pt-0 sm:pt-0 cursor-grab">
-      <Carousel
-        opts={{
-          slidesToScroll: "auto",
-        }}
-      >
-        <CarouselContent>
-          {images?.map((image, index) => (
-            <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: index * 0.1,
-                  duration: 0.3,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true }}
-              >
-                <ImageCard image={image} className="m-4" />
-              </motion.div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </div>
-  );
-};
+// const CarouselElement = ({ images }: string[]) => {
+//   return (
+//     <div className="p-15 sm:p-20 pt-0 sm:pt-0 cursor-grab">
+//       <Carousel
+//         opts={{
+//           slidesToScroll: "auto",
+//         }}
+//       >
+//         <CarouselContent>
+//           {images?.map((image, index) => (
+//             <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={index}>
+//               <motion.div
+//                 initial={{ opacity: 0, y: 30 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 transition={{
+//                   delay: index * 0.1,
+//                   duration: 0.3,
+//                   ease: "easeOut",
+//                 }}
+//                 viewport={{ once: true }}
+//               >
+//                 <ImageCard image={image} className="m-4" />
+//               </motion.div>
+//             </CarouselItem>
+//           ))}
+//         </CarouselContent>
+//         <CarouselPrevious />
+//         <CarouselNext />
+//       </Carousel>
+//     </div>
+//   );
+// };
 
 const ImageCard = ({ image }: any) => {
   return (
