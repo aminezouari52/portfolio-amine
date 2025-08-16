@@ -113,12 +113,12 @@ const GridItem = ({
               <div className="inline-flex items-center font-medium text-blue-600 dark:text-blue-500">
                 {date}
               </div>
-              <a
+              <div
                 className="block [&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm/[1.125rem] 
                 md:text-base/[1.375rem]  text-black dark:text-neutral-400"
               >
                 {description}
-              </a>
+              </div>
             </div>
           </div>
         </div>

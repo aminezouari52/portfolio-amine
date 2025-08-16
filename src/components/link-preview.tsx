@@ -86,6 +86,7 @@ export const LinkPreview = ({
             layout={layout}
             priority={true}
             alt="hidden image"
+            onError={(e) => (e.currentTarget.src = "")}
           />
         </div>
       ) : null}

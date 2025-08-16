@@ -1,6 +1,14 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/carousel";
 
 import {
   Modal,
@@ -24,20 +32,39 @@ import {
   CreditCard,
   HeartPulse,
   Globe,
+  Gift,
+  LayoutDashboard,
+  Sparkles,
+  Workflow,
 } from "lucide-react";
-import telemedicineImg1 from "../assets/telemedicine-1.png";
-import telemedicineImg2 from "../assets/telemedicine-2.png";
-import telemedicineImg3 from "../assets/telemedicine-3.png";
-import telemedicineImg4 from "../assets/telemedicine-4.png";
-import telemedicineImg5 from "../assets/telemedicine-5.png";
 
-import Home from "../assets/Home.png";
-import Login from "../assets/Login.png";
-import Shop from "../assets/Shop.png";
-import UserImg from "../assets/User.png";
-import Checkout from "../assets/Checkout.png";
+import scan2winImg1 from "../assets/scan2win/scan2win-1.png";
+import scan2winImg2 from "../assets/scan2win/scan2win-2.png";
+import scan2winImg3 from "../assets/scan2win/scan2win-3.png";
+import scan2winImg4 from "../assets/scan2win/scan2win-4.png";
+import scan2winImg5 from "../assets/scan2win/scan2win-5.png";
 
-const images = [
+import telemedicineImg1 from "../assets/telemedicine/telemedicine-1.png";
+import telemedicineImg2 from "../assets/telemedicine/telemedicine-2.png";
+import telemedicineImg3 from "../assets/telemedicine/telemedicine-3.png";
+import telemedicineImg4 from "../assets/telemedicine/telemedicine-4.png";
+import telemedicineImg5 from "../assets/telemedicine/telemedicine-5.png";
+
+import Home from "../assets/ecommerce/Home.png";
+import Login from "../assets/ecommerce/Login.png";
+import Shop from "../assets/ecommerce/Shop.png";
+import UserImg from "../assets/ecommerce/User.png";
+import Checkout from "../assets/ecommerce/Checkout.png";
+
+const scan2winImages = [
+  scan2winImg1,
+  scan2winImg2,
+  scan2winImg3,
+  scan2winImg4,
+  scan2winImg5,
+];
+
+const telemedicineImages = [
   telemedicineImg1,
   telemedicineImg2,
   telemedicineImg3,
@@ -49,280 +76,404 @@ const imagesCommerce = [Login, Shop, Home, UserImg, Checkout];
 
 export default function Project() {
   return (
-    <div id="projects">
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Projects
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+    <div id="projects" className="pb-20">
+      <h2 className="text-lg md:text-4xl text-black dark:text-white max-w-4xl max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+        Projects
+      </h2>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
+        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base py-16">
+          Freelance projects for clients with real-world problems.
+        </p>
+        <div className="relative max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-[48px]">
+          <Modal>
+            <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
+              <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
+                <Card
+                  title="Scan2Win"
+                  icon={
+                    <Gift className="text-neutral-700 dark:text-[#fff] h-[80px] w-[80px]" />
+                  }
+                >
+                  <CanvasRevealEffect
+                    animationSpeed={5}
+                    containerClassName="bg-[#FF6B6B]"
+                    colors={[[255, 220, 220]]}
+                  />
+                </Card>
+              </div>
+            </ModalTrigger>
+            <ModalBody>
+              <ModalContent>
+                <div className="flex justify-center align-center mb-8">
+                  <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
+                    Scan2Win{" "}
+                  </h4>
+                </div>
+                <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
+                <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                  Scan2Win is an interactive reward platform that lets users
+                  scan QR codes to instantly discover and claim prizes. It's a
+                  fun, fast, and engaging way for companies to boost customer
+                  interaction, run promotions, and gather insights, while giving
+                  users the excitement of winning something on the spot.
+                </p>
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {[
+                    "TypeScript",
+                    "ReactJs",
+                    "Tanstack Query",
+                    "Zustand",
+                    "NestJS",
+                    "PostgreSQL",
+                    "SendGrid",
+                    "Google APIs",
+                    "Nginx",
+                    "Docker",
+                    "Containerization",
+                    "Kubernetes",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className={`bg-[#FF6B6B] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm`}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex justify-center items-center flex-wrap mb-4">
+                  {scan2winImages.map((image, idx) => (
+                    <motion.div
+                      key={"images" + idx}
+                      style={{
+                        rotate: Math.random() * 20 - 10,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 0,
+                        zIndex: 100,
+                      }}
+                      whileTap={{
+                        scale: 1.1,
+                        rotate: 0,
+                        zIndex: 100,
+                      }}
+                      className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 overflow-hidden"
+                    >
+                      <Image
+                        src={image}
+                        alt="telemedicine images"
+                        width="500"
+                        height="500"
+                        className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="flex flex-col justify-center gap-4">
+                  <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
+                    <div className="flex items-center ">
+                      <LayoutDashboard className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Admin KPI's Dashboard
+                      </span>
+                    </div>
+                    <div className="flex items-center">
+                      <Sparkles className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        User Friendly UI
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Secure Authentication
+                      </span>
+                    </div>
+                    <div className="flex  items-center ">
+                      <Workflow className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Google APIs Integration
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </ModalContent>
+            </ModalBody>
+          </Modal>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
+        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base py-16">
           Side projects that I&apos;ve created in my free time.
         </p>
-      </div>
-      <div className="relative max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10 flex flex-col sm:flex-row items-center gap-[48px]">
-        <Modal>
-          <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
-            <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
-              <Card
-                title="Telemedicine Website"
-                icon={
-                  <HeartPulse className="text-neutral-700 dark:text-[#fff] h-[80px] w-[80px]" />
-                }
-              >
-                <CanvasRevealEffect
-                  animationSpeed={5}
-                  containerClassName="bg-[#615EFC]"
-                  colors={[[125, 211, 252]]}
+        <div className="relative max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-[48px]">
+          <Modal>
+            <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
+              <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
+                <Card
+                  title="Telemedicine Website"
+                  icon={
+                    <HeartPulse className="text-neutral-700 dark:text-[#fff] h-[80px] w-[80px]" />
+                  }
+                >
+                  <CanvasRevealEffect
+                    animationSpeed={5}
+                    containerClassName="bg-[#615EFC]"
+                    colors={[[125, 211, 252]]}
+                  />
+                </Card>
+              </div>
+            </ModalTrigger>
+            <ModalBody>
+              <ModalContent>
+                <div className="flex justify-center align-center mb-8">
+                  <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
+                    Telemedicine Website{" "}
+                  </h4>
+                </div>
+                <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
+                <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                  A platform designed to facilitate secure, real-time text-based
+                  consultations between doctors and patients. With a focus on
+                  simplicity and ease of use.
+                </p>
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {[
+                    "Socket.io",
+                    "Cron Job",
+                    "NodeJS",
+                    "Express",
+                    "MongoDB",
+                    "ReactJS",
+                    "Firebase",
+                    "JWT",
+                    "React Query",
+                    "render.com",
+                    "netlify",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="bg-[#615EFC] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex justify-center items-center flex-wrap mb-4">
+                  {telemedicineImages.map((image, idx) => (
+                    <motion.div
+                      key={"images" + idx}
+                      style={{
+                        rotate: Math.random() * 20 - 10,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 0,
+                        zIndex: 100,
+                      }}
+                      whileTap={{
+                        scale: 1.1,
+                        rotate: 0,
+                        zIndex: 100,
+                      }}
+                      className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
+                    >
+                      <Image
+                        src={image}
+                        alt="telemedicine images"
+                        width="500"
+                        height="500"
+                        className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="flex flex-col justify-center gap-4">
+                  <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
+                    <div className="flex  items-center ">
+                      <MessageCircle className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Real-time Secure Chat
+                      </span>
+                    </div>
+                    <div className="flex items-center ">
+                      <Bell className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Real-time Notifications
+                      </span>
+                    </div>
+                    <div className="flex items-center ">
+                      <Calendar className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Appointment Scheduling
+                      </span>
+                    </div>
+                    <div className="flex  items-center ">
+                      <User className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        User Profiles
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                      User Authentication
+                    </span>
+                  </div>
+                </div>
+              </ModalContent>
+              <ModalFooter className="gap-4">
+                <ActionButton
+                  href="https://bucolic-malabi-07ed64.netlify.app/"
+                  icon={<Globe className="text-black h-5 w-5" />}
+                  title="Live Website"
                 />
-              </Card>
-            </div>
-          </ModalTrigger>
-          <ModalBody>
-            <ModalContent>
-              <div className="flex justify-center align-center mb-8">
-                <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
-                  Telemedicine Website{" "}
-                </h4>
-              </div>
-              <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
-              <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
-                A platform designed to facilitate secure, real-time text-based
-                consultations between doctors and patients. With a focus on
-                simplicity and ease of use.
-              </p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {[
-                  "Socket.io",
-                  "Cron Job",
-                  "NodeJS",
-                  "Express",
-                  "MongoDB",
-                  "ReactJS",
-                  "Firebase",
-                  "JWT",
-                  "React Query",
-                  "render.com",
-                  "netlify",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="bg-[#615EFC] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <div className="flex justify-center items-center flex-wrap mb-4">
-                {images.map((image, idx) => (
-                  <motion.div
-                    key={"images" + idx}
-                    style={{
-                      rotate: Math.random() * 20 - 10,
-                    }}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 0,
-                      zIndex: 100,
-                    }}
-                    whileTap={{
-                      scale: 1.1,
-                      rotate: 0,
-                      zIndex: 100,
-                    }}
-                    className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
-                  >
-                    <Image
-                      src={image}
-                      alt="telemedicine images"
-                      width="500"
-                      height="500"
-                      className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-              <div className="flex flex-col justify-center gap-4">
-                <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
-                  <div className="flex  items-center ">
-                    <MessageCircle className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Real-time Secure Chat
-                    </span>
-                  </div>
-                  <div className="flex items-center ">
-                    <Bell className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Real-time Notifications
-                    </span>
-                  </div>
-                  <div className="flex items-center ">
-                    <Calendar className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Appointment Scheduling
-                    </span>
-                  </div>
-                  <div className="flex  items-center ">
-                    <User className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      User Profiles
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center">
-                  <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                  <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                    User Authentication
-                  </span>
-                </div>
-              </div>
-            </ModalContent>
-            <ModalFooter className="gap-4">
-              <ActionButton
-                href="https://bucolic-malabi-07ed64.netlify.app/"
-                icon={<Globe className="text-black h-5 w-5" />}
-                title="Live Website"
-              />
-              <ActionButton
-                href="https://github.com/aminezouari52/telemedicine-website"
-                icon={<GithubIcon />}
-                title="Github"
-              />
-            </ModalFooter>
-          </ModalBody>
-        </Modal>
+                <ActionButton
+                  href="https://github.com/aminezouari52/telemedicine-website"
+                  icon={<GithubIcon />}
+                  title="Github"
+                />
+              </ModalFooter>
+            </ModalBody>
+          </Modal>
 
-        <Modal>
-          <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
-            <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
-              <Card
-                title="E-Commerce Website"
-                icon={
-                  <ShoppingCart className="text-neutral-700 dark:text-[#fff] h-[80px] w-[80px]" />
-                }
-              >
-                <CanvasRevealEffect
-                  animationSpeed={5}
-                  containerClassName="bg-[#800000]"
-                  colors={[
-                    [236, 72, 153],
-                    [232, 121, 249],
-                  ]}
-                  dotSize={2}
+          <Modal>
+            <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
+              <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
+                <Card
+                  title="E-Commerce Website"
+                  icon={
+                    <ShoppingCart className="text-neutral-700 dark:text-[#fff] h-[80px] w-[80px]" />
+                  }
+                >
+                  <CanvasRevealEffect
+                    animationSpeed={5}
+                    containerClassName="bg-[#800000]"
+                    colors={[
+                      [236, 72, 153],
+                      [232, 121, 249],
+                    ]}
+                    dotSize={2}
+                  />
+                </Card>
+              </div>
+            </ModalTrigger>
+            <ModalBody>
+              <ModalContent>
+                <div className="flex justify-center align-center mb-8">
+                  <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
+                    E-Commerce Website{" "}
+                  </h4>
+                </div>
+                <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
+                <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                  A dynamic e-commerce website that offers a seamless shopping
+                  experience, with a focus on scalability, performance, and
+                  responsiveness.
+                </p>
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {[
+                    "NodeJS",
+                    "Express",
+                    "MongoDB",
+                    "ReactJS",
+                    "Firebase",
+                    "JWT",
+                    "ChakraUI",
+                    "Redux Toolkit",
+                    "render.com",
+                    "netlify",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="bg-[#800000] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-4 flex justify-center items-center flex-wrap mb-4">
+                  {imagesCommerce.map((image, idx) => (
+                    <motion.div
+                      key={"images" + idx}
+                      style={{
+                        rotate: Math.random() * 20 - 10,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 0,
+                        zIndex: 100,
+                      }}
+                      whileTap={{
+                        scale: 1.1,
+                        rotate: 0,
+                        zIndex: 100,
+                      }}
+                      className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
+                    >
+                      <Image
+                        src={image}
+                        alt="ecommerce images"
+                        width="500"
+                        height="500"
+                        className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="flex flex-col justify-center gap-4">
+                  <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
+                    <div className="flex  items-center ">
+                      <Wrench className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Admin Dashboard
+                      </span>
+                    </div>
+                    <div className="flex items-center ">
+                      <Box className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Product Listings
+                      </span>
+                    </div>
+                    <div className="flex items-center ">
+                      <ShoppingCart className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Cart System
+                      </span>
+                    </div>
+                    <div className="flex  items-center ">
+                      <CreditCard className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Seamless Checkout
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                      User Authentication
+                    </span>
+                  </div>
+                </div>
+              </ModalContent>
+              <ModalFooter className="gap-4">
+                <ActionButton
+                  href="https://polite-cassata-060142.netlify.app/"
+                  icon={<Globe className="text-black h-5 w-5" />}
+                  title="Live Website"
                 />
-              </Card>
-            </div>
-          </ModalTrigger>
-          <ModalBody>
-            <ModalContent>
-              <div className="flex justify-center align-center mb-8">
-                <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
-                  E-Commerce Website{" "}
-                </h4>
-              </div>
-              <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
-              <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
-                A dynamic e-commerce website that offers a seamless shopping
-                experience, with a focus on scalability, performance, and
-                responsiveness.
-              </p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {[
-                  "NodeJS",
-                  "Express",
-                  "MongoDB",
-                  "ReactJS",
-                  "Firebase",
-                  "JWT",
-                  "ChakraUI",
-                  "Redux Toolkit",
-                  "render.com",
-                  "netlify",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="bg-[#800000] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-4 flex justify-center items-center flex-wrap mb-4">
-                {imagesCommerce.map((image, idx) => (
-                  <motion.div
-                    key={"images" + idx}
-                    style={{
-                      rotate: Math.random() * 20 - 10,
-                    }}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 0,
-                      zIndex: 100,
-                    }}
-                    whileTap={{
-                      scale: 1.1,
-                      rotate: 0,
-                      zIndex: 100,
-                    }}
-                    className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
-                  >
-                    <Image
-                      src={image}
-                      alt="ecommerce images"
-                      width="500"
-                      height="500"
-                      className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-              <div className="flex flex-col justify-center gap-4">
-                <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
-                  <div className="flex  items-center ">
-                    <Wrench className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Admin Dashboard
-                    </span>
-                  </div>
-                  <div className="flex items-center ">
-                    <Box className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Product Listings
-                    </span>
-                  </div>
-                  <div className="flex items-center ">
-                    <ShoppingCart className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Cart System
-                    </span>
-                  </div>
-                  <div className="flex  items-center ">
-                    <CreditCard className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                    <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                      Seamless Checkout
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center">
-                  <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                  <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                    User Authentication
-                  </span>
-                </div>
-              </div>
-            </ModalContent>
-            <ModalFooter className="gap-4">
-              <ActionButton
-                href="https://polite-cassata-060142.netlify.app/"
-                icon={<Globe className="text-black h-5 w-5" />}
-                title="Live Website"
-              />
-              <ActionButton
-                href="https://github.com/aminezouari52/e-commerce"
-                icon={<GithubIcon />}
-                title="Github"
-              />
-            </ModalFooter>
-          </ModalBody>
-        </Modal>
+                <ActionButton
+                  href="https://github.com/aminezouari52/e-commerce"
+                  icon={<GithubIcon />}
+                  title="Github"
+                />
+              </ModalFooter>
+            </ModalBody>
+          </Modal>
+        </div>
       </div>
     </div>
   );
@@ -361,6 +512,54 @@ const GithubIcon = () => {
   );
 };
 
+const CarouselElement = ({ images }: any) => {
+  return (
+    <div className="p-15 sm:p-20 pt-0 sm:pt-0 cursor-grab">
+      <Carousel
+        opts={{
+          slidesToScroll: "auto",
+        }}
+      >
+        <CarouselContent>
+          {images?.map((image, index) => (
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.3,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: true }}
+              >
+                <ImageCard image={image} className="m-4" />
+              </motion.div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
+};
+
+const ImageCard = ({ image }: any) => {
+  return (
+    <div className="relative bg-layer-card flex flex-col justify-between shadow-lg cursor-pointer rounded-md group">
+      <div>
+        <img
+          src={image}
+          alt="Product Image"
+          crossOrigin="anonymous"
+          className="rounded-md block"
+        />
+      </div>
+    </div>
+  );
+};
+
 const Card = ({
   title,
   icon,
@@ -370,7 +569,7 @@ const Card = ({
   icon: React.ReactNode;
   children?: React.ReactNode;
 }) => {
-  const [hovered, setHovered] = React.useState(false);
+  const [hovered, setHovered] = useState(false);
   return (
     <div
       onMouseEnter={() => setHovered(true)}

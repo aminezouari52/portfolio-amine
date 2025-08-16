@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { InfiniteMovingCards } from "../components/infinite-moving-cards";
-import logoReact from "@/assets/logo-react.svg";
-import logoNode from "@/assets/logo-node.svg";
-import logoWebcomponents from "@/assets/webcomponents.svg";
-import next from "@/assets/next.svg";
-import nest from "@/assets/nest.svg";
-import ts from "@/assets/ts.svg";
 import { motion } from "framer-motion";
+
+import logoReact from "@/assets/skills/logo-react.svg";
+import logoNode from "@/assets/skills/logo-node.svg";
+import logoWebcomponents from "@/assets/skills/webcomponents.svg";
+import next from "@/assets/skills/next.svg";
+import nest from "@/assets/skills/nest.svg";
+import ts from "@/assets/skills/ts.svg";
 
 export default function Skills() {
   return (
@@ -160,6 +161,23 @@ export default function Skills() {
                       RESTful API
                     </span>{" "}
                     design principles.
+                  </span>
+                </motion.li>
+
+                <motion.li
+                  className="flex items-center space-x-3 rtl:space-x-reverse"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  // viewport={{ once: true }}
+                >
+                  <CheckIcon />
+                  <span>
+                    Skilled in{" "}
+                    <span className="text-black dark:text-gray-200">
+                      deploying
+                    </span>{" "}
+                    and managing web applications in production.
                   </span>
                 </motion.li>
               </ul>
