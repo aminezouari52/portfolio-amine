@@ -160,13 +160,19 @@ export default function Project() {
                       }}
                       className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 overflow-hidden"
                     >
-                      <Image
-                        src={image}
-                        alt="telemedicine images"
-                        width="500"
-                        height="500"
-                        className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
-                      />
+                      <a
+                        href={image.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Image
+                          src={image}
+                          alt="telemedicine images"
+                          width="500"
+                          height="500"
+                          className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
+                        />
+                      </a>
                     </motion.div>
                   ))}
                 </div>
@@ -280,13 +286,19 @@ export default function Project() {
                       }}
                       className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
                     >
-                      <Image
-                        src={image}
-                        alt="telemedicine images"
-                        width="500"
-                        height="500"
-                        className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
-                      />
+                      <a
+                        href={image.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Image
+                          src={image}
+                          alt="telemedicine images"
+                          width="500"
+                          height="500"
+                          className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
+                        />
+                      </a>
                     </motion.div>
                   ))}
                 </div>
@@ -414,13 +426,19 @@ export default function Project() {
                       }}
                       className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
                     >
-                      <Image
-                        src={image}
-                        alt="ecommerce images"
-                        width="500"
-                        height="500"
-                        className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
-                      />
+                      <a
+                        href={image.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Image
+                          src={image}
+                          alt="ecommerce images"
+                          width="500"
+                          height="500"
+                          className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0"
+                        />
+                      </a>
                     </motion.div>
                   ))}
                 </div>
