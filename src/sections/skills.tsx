@@ -69,7 +69,7 @@ export default function Skills() {
             >
               I specialize in developing{" "}
               <span className="font-semibold dark:text-white">
-                fullstack web solutions
+                full stack web solutions
               </span>
               , creating seamless UI/UX experiences, and building efficient,
               well-structured APIs.
