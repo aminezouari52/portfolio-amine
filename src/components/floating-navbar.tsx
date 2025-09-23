@@ -122,15 +122,21 @@ export const FloatingNav = ({ className }: { className?: string }) => {
           </Link>
         ))}
         <button
-          className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
+          className="relative w-[2rem] h-[2rem] border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-black dark:text-white rounded-full flex items-center justify-center"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
-          {theme === "light" ? (
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          ) : (
-            <Moon className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          )}
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+          <div className="relative w-[1.2rem] h-[1.2rem]">
+            <Sun
+              className={`absolute w-[1.2rem] h-[1.2rem] inset-0 transition-all duration-500
+        ${theme === "light" ? "rotate-0 scale-100" : "-rotate-90 scale-0"}`}
+            />
+            <Moon
+              className={`absolute w-[1.2rem] h-[1.2rem] inset-0 transition-all duration-500
+        ${theme === "dark" ? "rotate-0 scale-100" : "rotate-90 scale-0"}`}
+            />
+          </div>
+
+          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
         </button>
       </motion.div>
     </AnimatePresence>
