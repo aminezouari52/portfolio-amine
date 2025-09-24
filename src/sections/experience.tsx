@@ -1,5 +1,3 @@
-import Image from "next/image";
-import React from "react";
 import { Timeline } from "@/components/timeline";
 import { HoverBorderGradient } from "@/components/hover-border-gradient";
 import { motion } from "framer-motion";

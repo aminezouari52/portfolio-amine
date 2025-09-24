@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { BadgeCheck, GraduationCap } from "lucide-react";
 import { GlowingEffect } from "@/components/glowing-effect";
 export default function Education() {
@@ -88,7 +86,7 @@ const GridItem = ({
       href={href}
       target="_blank"
     >
-      <div className="relative h-full rounded-2.5xl border p-2 md:rounded-3xl md:p-3">
+      <div className="relative h-full rounded-3xl border p-2 md:p-3">
         <GlowingEffect
           spread={40}
           glow={true}

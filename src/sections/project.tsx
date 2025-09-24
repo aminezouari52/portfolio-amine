@@ -36,6 +36,7 @@ import {
   LayoutDashboard,
   Sparkles,
   Workflow,
+  Video,
 } from "lucide-react";
 
 import scan2winImg1 from "../assets/scan2win/scan2win-1.png";
@@ -46,9 +47,9 @@ import scan2winImg5 from "../assets/scan2win/scan2win-5.png";
 
 import telemedicineImg1 from "../assets/telemedicine/telemedicine-1.png";
 import telemedicineImg2 from "../assets/telemedicine/telemedicine-2.png";
-import telemedicineImg3 from "../assets/telemedicine/telemedicine-3.png";
 import telemedicineImg4 from "../assets/telemedicine/telemedicine-4.png";
 import telemedicineImg5 from "../assets/telemedicine/telemedicine-5.png";
+import telemedicineImg6 from "../assets/telemedicine/telemedicine-6.png";
 
 import Home from "../assets/ecommerce/Home.png";
 import Login from "../assets/ecommerce/Login.png";
@@ -67,9 +68,9 @@ const scan2winImages = [
 const telemedicineImages = [
   telemedicineImg1,
   telemedicineImg2,
-  telemedicineImg3,
   telemedicineImg4,
   telemedicineImg5,
+  telemedicineImg6,
 ];
 
 const imagesCommerce = [Login, Shop, Home, UserImg, Checkout];
@@ -241,7 +242,7 @@ export default function Project() {
                 </div>
                 <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
                 <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
-                  A platform designed to facilitate secure, real-time text-based
+                  A platform designed to facilitate secure, real-time video call
                   consultations between doctors and patients. With a focus on
                   simplicity and ease of use.
                 </p>
@@ -257,7 +258,7 @@ export default function Project() {
                     "JWT",
                     "React Query",
                     "render.com",
-                    "netlify",
+                    "Gemini API",
                   ].map((item) => (
                     <span
                       key={item}
@@ -305,9 +306,9 @@ export default function Project() {
                 <div className="flex flex-col justify-center gap-4">
                   <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
                     <div className="flex  items-center ">
-                      <MessageCircle className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <Video className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
                       <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                        Real-time Secure Chat
+                        Real-time Video Call
                       </span>
                     </div>
                     <div className="flex items-center ">
@@ -322,19 +323,32 @@ export default function Project() {
                         Appointment Scheduling
                       </span>
                     </div>
-                    <div className="flex  items-center ">
+                    <div className="flex items-center ">
                       <User className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
                       <span className="text-neutral-700 dark:text-neutral-300 text-sm">
                         User Profiles
                       </span>
                     </div>
+                    <div className="flex items-center">
+                      <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        User Authentication
+                      </span>
+                    </div>
+                    <div className="flex items-center">
+                      <Sparkles className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        AI Consultation
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-center">
+                  {/* unpair feature goes here (3rd, 5th, 7th ...) */}
+                  {/* <div className="flex items-center justify-center">
                     <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
                     <span className="text-neutral-700 dark:text-neutral-300 text-sm">
                       User Authentication
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </ModalContent>
               <ModalFooter className="gap-4">
