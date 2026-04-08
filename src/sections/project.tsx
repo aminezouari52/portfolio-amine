@@ -19,6 +19,7 @@ import {
 } from "../components/animated-modal";
 import { CanvasRevealEffect } from "@/components/canvas-reveal-effect";
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import {
   MessageCircle,
@@ -33,6 +34,7 @@ import {
   HeartPulse,
   Globe,
   Gift,
+  Scissors,
   LayoutDashboard,
   Sparkles,
   Workflow,
@@ -51,6 +53,12 @@ import telemedicineImg4 from "../assets/telemedicine/telemedicine-4.png";
 import telemedicineImg5 from "../assets/telemedicine/telemedicine-5.png";
 import telemedicineImg6 from "../assets/telemedicine/telemedicine-6.png";
 
+import goldiloxImg1 from "../assets/goldilox/goldilox-1.png";
+import goldiloxImg2 from "../assets/goldilox/goldilox-2.png";
+import goldiloxImg3 from "../assets/goldilox/goldilox-3.png";
+import goldiloxImg4 from "../assets/goldilox/goldilox-4.png";
+import goldiloxImg5 from "../assets/goldilox/goldilox-5.png";
+
 import Home from "../assets/ecommerce/Home.png";
 import Login from "../assets/ecommerce/Login.png";
 import Shop from "../assets/ecommerce/Shop.png";
@@ -63,6 +71,14 @@ const scan2winImages = [
   scan2winImg3,
   scan2winImg4,
   scan2winImg5,
+];
+
+const goldiloxImages = [
+  goldiloxImg1,
+  goldiloxImg2,
+  goldiloxImg3,
+  goldiloxImg4,
+  goldiloxImg5,
 ];
 
 const telemedicineImages = [
@@ -87,8 +103,8 @@ export default function Project() {
           Freelance projects for clients with real-world problems.
         </p>
         <div className="relative max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-[48px]">
-          <Modal>
-            <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
+          <ProjectModal
+            trigger={
               <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
                 <Card
                   title="Scan2Win"
@@ -103,111 +119,144 @@ export default function Project() {
                   />
                 </Card>
               </div>
-            </ModalTrigger>
-            <ModalBody>
-              <ModalContent>
-                <div className="flex justify-center align-center mb-8">
-                  <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
-                    Scan2Win{" "}
-                  </h4>
-                </div>
-                <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
-                <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
-                  Scan2Win is an interactive reward platform that lets users
-                  scan QR codes to instantly discover and claim prizes. It's a
-                  fun, fast, and engaging way for companies to boost customer
-                  interaction, run promotions, and gather insights, while giving
-                  users the excitement of winning something on the spot.
-                </p>
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {[
-                    "TypeScript",
-                    "ReactJs",
-                    "Tanstack Query",
-                    "Zustand",
-                    "NestJS",
-                    "PostgreSQL",
-                    "SendGrid",
-                    "Google APIs",
-                    "Nginx",
-                    "Docker",
-                    "Containerization",
-                    "Kubernetes",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className={`bg-[#FF6B6B] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm`}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex justify-center items-center flex-wrap mb-4">
-                  {scan2winImages.map((image, idx) => (
-                    <motion.div
-                      key={"images" + idx}
-                      style={{
-                        rotate: Math.random() * 20 - 10,
-                      }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 0,
-                        zIndex: 100,
-                      }}
-                      whileTap={{
-                        scale: 1.1,
-                        rotate: 0,
-                        zIndex: 100,
-                      }}
-                      className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 overflow-hidden"
-                    >
-                      <a
-                        href={image.src}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          src={image}
-                          alt="telemedicine images"
-                          width="500"
-                          height="500"
-                          className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
-                        />
-                      </a>
-                    </motion.div>
-                  ))}
-                </div>
-                <div className="flex flex-col justify-center gap-4">
-                  <div className="pt-10 max-w-sm mx-auto grid grid-cols-2 gap-4">
-                    <div className="flex items-center ">
-                      <LayoutDashboard className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                        Admin KPI's Dashboard
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <Sparkles className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                        User Friendly UI
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <Lock className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                        Secure Authentication
-                      </span>
-                    </div>
-                    <div className="flex  items-center ">
-                      <Workflow className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
-                      <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                        Google APIs Integration
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </ModalContent>
-            </ModalBody>
-          </Modal>
+            }
+            title="Scan2Win"
+            description="Scan2Win is an interactive growth platform that helps businesses boost customer engagement through QR-powered campaigns and now includes end-to-end Google review management. It integrates directly with Google Business accounts so brands can centralize their online presence and monitor customer feedback in one place. With AI-powered automated review replies, teams can respond faster, maintain a consistent brand voice, and improve local trust at scale."
+            technologies={[
+              "TypeScript",
+              "ReactJs",
+              "Tanstack Query",
+              "Zustand",
+              "NestJS",
+              "PostgreSQL",
+              "SendGrid",
+              "Google APIs",
+              "Gemini API",
+              "Nginx",
+              "Docker",
+              "Containerization",
+              "Kubernetes",
+            ]}
+            tagClassName="bg-[#FF6B6B] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm"
+            images={scan2winImages}
+            imageAlt="scan2win images"
+            features={[
+              {
+                icon: (
+                  <LayoutDashboard className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Google Reviews Management",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <Workflow className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Google Business Integration",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <Sparkles className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Automated AI Replies",
+                className: "flex items-center justify-center",
+              },
+              {
+                icon: (
+                  <Workflow className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Google APIs Integration",
+                className: "flex items-center",
+              },
+            ]}
+            actions={[
+              {
+                href: "https://www.scan2win.fr/",
+                icon: <Globe className="text-black h-5 w-5" />,
+                title: "Live Website",
+              },
+            ]}
+          />
+          <ProjectModal
+            trigger={
+              <div className="flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-transparent w-full gap-4">
+                <Card
+                  title="Goldilox"
+                  icon={
+                    <Scissors className="text-neutral-700 dark:text-[#fff] h-[80px] w-[80px]" />
+                  }
+                >
+                  <CanvasRevealEffect
+                    animationSpeed={5}
+                    containerClassName="bg-[#7B4B2A]"
+                    colors={[[232, 207, 182]]}
+                  />
+                </Card>
+              </div>
+            }
+            title="Goldilox"
+            description="Goldilox is a modern platform that helps clients discover and book trusted hairdressers while enabling professionals to showcase their skills, services, and build their reputation. The platform delivers a smooth and engaging experience with a clean design, making browsing, booking, and reviewing effortless for users. This solution adds value by increasing visibility for hairdressers, improving client trust, and simplifying appointment management."
+            technologies={[
+              "Next.js",
+              "tRPC",
+              "Supabase",
+              "PostgreSQL",
+              "Brevo",
+              "TypeScript",
+              "Coolify",
+              "AWS S3",
+              "Tailwind CSS",
+              "shadcn/ui",
+            ]}
+            tagClassName="bg-[#7B4B2A] text-[#fff] text-xs font-medium px-2.5 py-0.5 rounded-sm"
+            images={goldiloxImages}
+            imageAlt="goldilox images"
+            features={[
+              {
+                icon: (
+                  <User className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Hairdresser Discovery",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <Calendar className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Easy Booking Flow",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <Sparkles className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Reviews & Reputation",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <MessageCircle className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "Portfolio & Services",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <Workflow className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "CMS Configuration",
+                className: "flex items-center",
+              },
+              {
+                icon: (
+                  <LayoutDashboard className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+                ),
+                label: "SaaS Platform",
+                className: "flex items-center",
+              },
+            ]}
+          />
         </div>
       </div>
 
@@ -650,5 +699,127 @@ export const Icon = ({ className, ...rest }: any) => {
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
     </svg>
+  );
+};
+
+type ProjectFeature = {
+  icon: React.ReactNode;
+  label: string;
+  className?: string;
+};
+
+type ProjectAction = {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+};
+
+type ProjectModalProps = {
+  trigger: React.ReactNode;
+  title: string;
+  description: string;
+  technologies: string[];
+  tagClassName: string;
+  images: StaticImageData[];
+  imageAlt: string;
+  features: ProjectFeature[];
+  actions?: ProjectAction[];
+};
+
+const ProjectModal = ({
+  trigger,
+  title,
+  description,
+  technologies,
+  tagClassName,
+  images,
+  imageAlt,
+  features,
+  actions,
+}: ProjectModalProps) => {
+  return (
+    <Modal>
+      <ModalTrigger className="dark:text-black text-white flex justify-center group/modal-btn w-[100%] sm:w-[50%] overflow-visible">
+        {trigger}
+      </ModalTrigger>
+      <ModalBody>
+        <ModalContent>
+          <div className="flex justify-center align-center mb-8">
+            <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 text-center font-bold">
+              {title}
+            </h4>
+          </div>
+          <hr className="mb-4 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
+          <p className="mb-4 mt-0 text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+            {description}
+          </p>
+          <div className="flex flex-wrap gap-1 mb-4">
+            {technologies.map((item) => (
+              <span key={item} className={tagClassName}>
+                {item}
+              </span>
+            ))}
+          </div>
+          <div className="flex justify-center items-center flex-wrap mb-4">
+            {images.map((image, idx) => (
+              <motion.div
+                key={"images" + idx}
+                style={{
+                  rotate: Math.random() * 20 - 10,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: 0,
+                  zIndex: 100,
+                }}
+                whileTap={{
+                  scale: 1.1,
+                  rotate: 0,
+                  zIndex: 100,
+                }}
+                className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 overflow-hidden"
+              >
+                <a href={image.src} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={image}
+                    alt={imageAlt}
+                    width="500"
+                    height="500"
+                    className="rounded-lg h-[200px] w-[150px] sm:w-[150px] md:w-[170px] lg:w-[220px] xl:w-[290px] object-cover shrink-0 cursor-pointer"
+                  />
+                </a>
+              </motion.div>
+            ))}
+          </div>
+          <div className="flex flex-col justify-center gap-4">
+            <div className="pt-10 mx-auto grid grid-cols-2 gap-4">
+              {features.map((feature) => (
+                <div
+                  key={feature.label}
+                  className={feature.className ?? "flex items-center"}
+                >
+                  {feature.icon}
+                  <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                    {feature.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ModalContent>
+        {actions && (
+          <ModalFooter className="gap-4">
+            {actions.map((action) => (
+              <ActionButton
+                key={action.href}
+                href={action.href}
+                icon={action.icon}
+                title={action.title}
+              />
+            ))}
+          </ModalFooter>
+        )}
+      </ModalBody>
+    </Modal>
   );
 };
