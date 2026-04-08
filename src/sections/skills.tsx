@@ -35,7 +35,7 @@ export default function Skills() {
               <span className="font-semibold dark:text-white">I'm Amine!</span>{" "}
               A highly motivated JavaScript developer with{" "}
               <span className="font-semibold dark:text-white">
-                over three years of experience
+                over two years of experience
               </span>
               , I'm currently based in{" "}
               <span className="font-semibold dark:text-white">Tunisia.</span>
