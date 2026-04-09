@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     title: "Amine Zouari | Full Stack Web Engineer",
     description:
       "I'm Amine, a passionate Full Stack Web Engineer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
-    url: "https://amine-zouari.vercel.app/",
+    url: "https://amine-zouari.com/",
     siteName: "Amine Zouari Portfolio",
     images: [
       {
-        url: "https://amine-zouari.vercel.app/preview.png",
+        url: "https://amine-zouari.com/preview.png",
         width: 1000,
         height: 500,
         alt: "Amine Zouari Portfolio Preview",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Amine Zouari | Full Stack Web Engineer",
     description:
       "I'm Amine, a passionate Full Stack Web Engineer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
-    images: ["https://amine-zouari.vercel.app/preview.png"],
+    images: ["https://amine-zouari.com/preview.png"],
   },
 };
 
