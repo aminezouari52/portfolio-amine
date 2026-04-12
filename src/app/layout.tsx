@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Amine Zouari | Full Stack Web Engineer",
     description:
       "I'm Amine, a passionate Full Stack Web Engineer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
-    url: "https://amine-zouari.com/",
+    url: "https://amine-zouari.com",
     siteName: "Amine Zouari Portfolio",
     images: [
       {
@@ -42,6 +42,10 @@ export const metadata: Metadata = {
     description:
       "I'm Amine, a passionate Full Stack Web Engineer crafting modern, responsive web experiences with a strong focus on frontend performance and design.",
     images: ["https://amine-zouari.com/preview.png"],
+  },
+  metadataBase: new URL("https://amine-zouari.com"),
+  alternates: {
+    canonical: "/",
   },
 };
 
