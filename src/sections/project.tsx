@@ -256,6 +256,13 @@ export default function Project() {
                 className: "flex items-center",
               },
             ]}
+            actions={[
+              {
+                href: "https://app.goldiloxcollective.com",
+                icon: <Globe className="text-black h-5 w-5" />,
+                title: "Live Website",
+              },
+            ]}
           />
         </div>
       </div>
