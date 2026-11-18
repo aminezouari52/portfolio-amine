@@ -11,7 +11,7 @@ export default function Experience() {
         <div>
           <div className="mb-8">
             <div className="flex gap-2 text-2xl relative z-[200]">
-              <span>Frontend Developer</span> @{" "}
+              <span>Full-Stack Engineer</span> @{" "}
               <LinkPreview
                 url="https://se.com/"
                 className="flex align-center gap-3"
@@ -187,7 +187,7 @@ export default function Experience() {
         <div>
           <div className="mb-8">
             <div className="flex gap-2 text-2xl relative z-[200]">
-              <span>Full Stack JavaScript Developer </span> @{" "}
+              <span>Full-Stack Engineer</span> @{" "}
               <LinkPreview
                 url="https://www.linkedin.com/company/pixelium-tech/"
                 className="flex align-center gap-3"

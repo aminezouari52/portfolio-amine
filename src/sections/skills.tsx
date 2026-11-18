@@ -25,40 +25,30 @@ export default function Skills() {
       <div className="relative w-[96vw] max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10">
         <InfiniteMovingCards logos={testimonials} direction="right" />
         <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 align-center justify-between pt-20">
-          <div className="flex flex-col align-center justify-center gap-2 w-full lg:w-[45%] text-lg text-gray-500 dark:text-gray-300">
+          <div className="flex flex-col align-center justify-start gap-2 w-full lg:w-[45%] text-lg text-gray-500 dark:text-gray-300 tracking-wider">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Hi,{" "}
-              <span className="font-semibold dark:text-white">I'm Amine!</span>{" "}
-              A highly motivated JavaScript developer with{" "}
+              I'm Amine! A highly motivated{" "}
               <span className="font-semibold dark:text-white">
-                over two years of experience
+                Senior Full-Stack Engineer{" "}
               </span>
-              , I'm currently based in{" "}
-              <span className="font-semibold dark:text-white">Tunisia.</span>
+              with over three years of experience.
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              // viewport={{ once: true }}
             >
-              I specialize in building scalable, high-performance, and
-              user-friendly web applications.
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              // viewport={{ once: true }}
-            >
-              I have a strong grasp of fundamental programming concepts and
-              modern web technologies, working extensively with{" "}
+              Building{" "}
               <span className="font-semibold dark:text-white">
-                JavaScript frameworks and tools.
+                scalable web applications{" "}
+              </span>
+              using{" "}
+              <span className="font-semibold dark:text-white">
+                React, Next.js, TypeScript, Node.js, and NestJS.
               </span>
             </motion.div>
             <motion.div
@@ -67,12 +57,14 @@ export default function Skills() {
               transition={{ duration: 0.8 }}
               // viewport={{ once: true }}
             >
-              I specialize in developing{" "}
+              Experienced in developing{" "}
               <span className="font-semibold dark:text-white">
-                full stack web solutions
+                modern frontend architectures, REST APIs
               </span>
-              , creating seamless UI/UX experiences, and building efficient,
-              well-structured APIs.
+              , and backend services while working with
+              <span className="font-semibold dark:text-white">
+                PostgreSQL, MongoDB, and Prisma ORM.
+              </span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -80,12 +72,14 @@ export default function Skills() {
               transition={{ duration: 0.8 }}
               // viewport={{ once: true }}
             >
-              In my free time, I'm always{" "}
+              Strong background in
               <span className="font-semibold dark:text-white">
-                seeking continuous improvement
+                Docker, CI/CD automation, testing practices, and cloud
+                deployments
               </span>
-              , whether it's participating in AI challenges, random hackathons,
-              learning new technologies or building my own website portfolio.
+              , with experience collaborating in
+              <span className="font-semibold dark:text-white">Agile teams</span>
+              to deliver maintainable and reliable software solutions.
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
